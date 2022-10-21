@@ -9,7 +9,7 @@ import {
 
 import styles from "./index.module.scss";
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -20,25 +20,16 @@ export const RegisterForm = () => {
         <InputLabel htmlFor="email">Email</InputLabel>
         <InputField type="email" id="email" />
       </InputContainer>
-      <section className={styles.nameFieldRow}>
-        <InputContainer>
-          <InputLabel htmlFor="firstName">First Name</InputLabel>
-          <InputField type="text" id="firstName" />
-        </InputContainer>
-        <InputContainer>
-          <InputLabel htmlFor="lastName">Last Name</InputLabel>
-          <InputField type="text" id="lastName" />
-        </InputContainer>
-      </section>
-      <InputContainer>
+
+      <InputContainer className={styles.loginFormPassword}>
         <InputLabel htmlFor="password">Password</InputLabel>
         <InputField type="password" id="password" />
       </InputContainer>
-      <Button className={styles.button}>Create My Account</Button>
+      <Button>Login</Button>
       <div className={styles.footerText}>
-        <span>Already have an account?</span>
-        <Link to="/login">
-          <span>Login</span>
+        <span>Don't have an account?</span>
+        <Link to="/register">
+          <span>Sign Up</span>
         </Link>
       </div>
     </form>
