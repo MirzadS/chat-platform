@@ -32,6 +32,7 @@ export const RegisterForm = () => {
           {...register("email", { required: "Email is Required" })}
         />
       </InputContainer>
+
       <section className={styles.nameFieldRow}>
         <InputContainer>
           <InputLabel htmlFor="firstName">First Name</InputLabel>
@@ -50,6 +51,7 @@ export const RegisterForm = () => {
           />
         </InputContainer>
       </section>
+
       <InputContainer>
         <InputLabel htmlFor="password">Password</InputLabel>
         <InputField
@@ -58,6 +60,7 @@ export const RegisterForm = () => {
           {...register("password", { required: "Password is Required" })}
         />
       </InputContainer>
+
       <Button className={styles.button}>Create My Account</Button>
       <div className={styles.footerText}>
         <span>Already have an account?</span>
