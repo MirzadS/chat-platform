@@ -7,6 +7,7 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
+import { instanceToPlain } from 'class-transformer';
 import { IUserService } from 'src/users/user';
 import { Routes, Services } from 'src/utils/constants';
 import { IAuthService } from './auth';
@@ -20,9 +21,9 @@ export class AuthController {
   ) {}
 
   @Post('register')
-  registerUser(@Body() createUserDto: CreateUserDto) {
+  async registerUser(@Body() createUserDto: CreateUserDto) {
     console.log(createUserDto);
-    this.usersService.createUser(createUserDto);
+    return instanceToPlain(await this.usersService.createUser(createUserDto));
   }
 
   @Post('login')
