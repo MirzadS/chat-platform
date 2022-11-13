@@ -4,6 +4,7 @@ import {
   Get,
   Inject,
   Post,
+  UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -12,6 +13,8 @@ import { IUserService } from 'src/users/user';
 import { Routes, Services } from 'src/utils/constants';
 import { IAuthService } from './auth';
 import { CreateUserDto } from './dtos/CreateUser.dto';
+import { UserLogginDto } from './dtos/UserLogin.dto';
+import { LocalAuthGuard } from './utils/Guards';
 
 @Controller(Routes.AUTH)
 export class AuthController {
@@ -27,11 +30,12 @@ export class AuthController {
   }
 
   @Post('login')
+  @UseGuards(LocalAuthGuard)
   login() {}
 
-  @Get('status')
-  status() {}
+  // @Get('status')
+  // status() {}
 
-  @Post('logout')
-  logout() {}
+  // @Post('logout')
+  // logout() {}
 }
